@@ -1,0 +1,9 @@
+{
+  "id": "id",
+  "username": "name",
+  "rank": 1,
+  "role": "role",
+  "hasAvatar": false,
+  "hasPaid": false,
+  "deleted": false
+}
