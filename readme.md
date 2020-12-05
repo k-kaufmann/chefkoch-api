@@ -2,6 +2,8 @@
 
 PHP library to access API data from chefkoch.de
 
+---
+
 ## Get started
 ```PHP
 <?php
@@ -12,6 +14,8 @@ $apiClient = $chefkochFactory->createApiClient();
 
 $user = $apiClient->getUserById("INPUT_USER_ID");
 ```
+
+---
 
 ## Data
 Accessible data from the API
