@@ -51,12 +51,12 @@ class User
         return $this->role;
     }
 
-    public function isHasAvatar(): bool
+    public function hasAvatar(): bool
     {
         return $this->hasAvatar;
     }
 
-    public function isHasPaid(): bool
+    public function hasPaid(): bool
     {
         return $this->hasPaid;
     }
