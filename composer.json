@@ -1,5 +1,5 @@
 {
-    "name": "k-kaufmann/chefkoch-api-php",
+    "name": "k-kaufmann/chefkoch-api",
     "description": "Basic client to read data from chefkoch.de",
     "type": "library",
     "require": {
