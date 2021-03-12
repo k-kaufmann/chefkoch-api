@@ -28,9 +28,9 @@ class ApiClient
         return $this->recipeClient->getRecipes($offset);
     }
 
-    public function getRecipesByCategories(string $category, string $offset = "0"): array
+    public function getRecipesByCategories(array $category, string $offset = "0"): array
     {
-        return $this->recipeClient->getRecipesByCategories($category, $offset);
+        return $this->recipeClient->getRecipesByTags($category, $offset);
     }
 
 }

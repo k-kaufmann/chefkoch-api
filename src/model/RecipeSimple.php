@@ -12,7 +12,7 @@ class RecipeSimple
     private string $title;
     private string $subTitle;
     private array $owner;
-    private array $rating;
+    private ?array $rating;
     private int $difficulty;
     private bool $hasImage;
     private bool $hasVideo;
@@ -34,7 +34,7 @@ class RecipeSimple
         string $title,
         string $subtitle,
         array $owner,
-        array $rating,
+        ?array $rating,
         int $difficulty,
         bool $hasImage,
         bool $hasVideo,
@@ -97,7 +97,7 @@ class RecipeSimple
         return $this->owner;
     }
 
-    public function getRating(): array
+    public function getRating(): ?array
     {
         return $this->rating;
     }

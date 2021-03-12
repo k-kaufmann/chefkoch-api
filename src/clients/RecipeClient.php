@@ -47,7 +47,7 @@ class RecipeClient
         return $recipesSimple;
     }
 
-    public function getRecipesByCategories(string $category, string $offset): array
+    public function getRecipesByTags(array $categories, string $offset): array
     {
         $recipesSimple = [];
         $response = $this->client->request(
@@ -57,7 +57,7 @@ class RecipeClient
                 "query" => [
                     "offset" => $offset,
                     "orderBy" => "createdAt",
-                    "tags" => $category
+                    "categories" => $this->buildQueryString($categories)
                 ]
             ]
         );
@@ -71,5 +71,14 @@ class RecipeClient
             }
         }
         return $recipesSimple;
+    }
+
+    private function buildQueryString(array $queryParams): string
+    {
+        $query = "";
+        foreach ($queryParams as $queryParam) {
+            $query = $query . $queryParam . ",";
+        }
+        return $query;
     }
 }
