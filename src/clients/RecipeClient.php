@@ -20,10 +20,10 @@ class RecipeClient
     }
 
     /**
-     * @param string $offest
+     * @param string $offset
      * @return RecipeSimple[]
      */
-    public function getRecipies(string $offest = "0"): array
+    public function getRecipes(string $offset = "0"): array
     {
         $recipesSimple = [];
         $response = $this->client->request(
@@ -31,11 +31,37 @@ class RecipeClient
             '',
             [
                 "query" => [
-                    "offset" => $offest,
+                    "offset" => $offset,
                     "orderBy" => "createdAt"
                 ]
             ]
         );
+        $response = json_decode($response->getBody()->getContents(), true);
+        foreach ($response['results'] as $result) {
+            try {
+                $recipesSimple[] = $this->recipeMapper->mapArray($result["recipe"]);
+            } catch (RecipeMappingException $recipeMappingException) {
+                // TODO logging for recipeMappingExceptions
+            }
+        }
+        return $recipesSimple;
+    }
+
+    public function getRecipesByCategories(string $category, string $offset): array
+    {
+        $recipesSimple = [];
+        $response = $this->client->request(
+            "GET",
+            '',
+            [
+                "query" => [
+                    "offset" => $offset,
+                    "orderBy" => "createdAt",
+                    "tags" => $category
+                ]
+            ]
+        );
+
         $response = json_decode($response->getBody()->getContents(), true);
         foreach ($response['results'] as $result) {
             try {
