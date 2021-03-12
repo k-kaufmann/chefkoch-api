@@ -1,8 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace chefkoch;
+namespace chefkoch\clients;
 
+use chefkoch\mapper\UserMapper;
 use chefkoch\model\User;
 use GuzzleHttp\Client;
 
