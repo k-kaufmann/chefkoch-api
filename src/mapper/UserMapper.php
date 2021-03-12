@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace chefkoch;
+namespace chefkoch\mapper;
 
 use chefkoch\model\User;
 
