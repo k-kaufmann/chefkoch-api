@@ -20,10 +20,10 @@ class RecipeClient
     }
 
     /**
-     * @param string $offest
+     * @param string $offset
      * @return RecipeSimple[]
      */
-    public function getRecipies(string $offest = "0"): array
+    public function getRecipes(string $offset = "0"): array
     {
         $recipesSimple = [];
         $response = $this->client->request(
@@ -31,7 +31,7 @@ class RecipeClient
             '',
             [
                 "query" => [
-                    "offset" => $offest,
+                    "offset" => $offset,
                     "orderBy" => "createdAt"
                 ]
             ]
@@ -45,5 +45,40 @@ class RecipeClient
             }
         }
         return $recipesSimple;
+    }
+
+    public function getRecipesByTags(array $categories, string $offset): array
+    {
+        $recipesSimple = [];
+        $response = $this->client->request(
+            "GET",
+            '',
+            [
+                "query" => [
+                    "offset" => $offset,
+                    "orderBy" => "createdAt",
+                    "categories" => $this->buildQueryString($categories)
+                ]
+            ]
+        );
+
+        $response = json_decode($response->getBody()->getContents(), true);
+        foreach ($response['results'] as $result) {
+            try {
+                $recipesSimple[] = $this->recipeMapper->mapArray($result["recipe"]);
+            } catch (RecipeMappingException $recipeMappingException) {
+                // TODO logging for recipeMappingExceptions
+            }
+        }
+        return $recipesSimple;
+    }
+
+    private function buildQueryString(array $queryParams): string
+    {
+        $query = "";
+        foreach ($queryParams as $queryParam) {
+            $query = $query . $queryParam . ",";
+        }
+        return $query;
     }
 }

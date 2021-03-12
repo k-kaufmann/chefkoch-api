@@ -30,7 +30,7 @@ class RecipeMapper
                 new DateTime($recipeSimple["createdAt"]),
                 (int)$recipeSimple["imageCount"],
                 $recipeSimple["editor"],
-                ($recipeSimple["id"] === null) ? null : new DateTime($recipeSimple["id"]),
+                ($recipeSimple["submissionDate"] === null) ? null : new DateTime($recipeSimple["submissionDate"]),
                 (bool)$recipeSimple["isPremium"],
                 (int)$recipeSimple["status"],
                 $recipeSimple["id"],
