@@ -16,6 +16,7 @@ $apiClient = $chefkochFactory->createApiClient();
 
 $user = $apiClient->getUserById("INPUT_USER_ID");
 $simpleRecipes = $apiClient->getRecipes("OFFSET");
+$categories = $apiclient->getCateogries()
 ```
 
 ---
@@ -52,3 +53,11 @@ Accessible data from the API
 * `isPremium` type: `bool`
 * `status` type: `int`
 * `siteUrl` type: `string`
+
+### Category
+* `it` type: `string`,
+* `title` type: `string`,
+* `parentId` type: `?string`,
+* `level` type: `int`,
+* `descriptionText`, type: `string`,
+* `linkName`, type: `string`
