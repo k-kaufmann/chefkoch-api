@@ -16,8 +16,8 @@ $apiClient = $chefkochFactory->createApiClient();
 
 $user = $apiClient->getUserById("INPUT_USER_ID");
 $simpleRecipes = $apiClient->getRecipes("OFFSET");
-$categories = $apiClient->getCateogries()
-$recipe = $apiClient->getRecipeById("RECIPE_ID")
+$categories = $apiClient->getCateogries();
+$recipe = $apiClient->getRecipeById("RECIPE_ID");
 ```
 
 ---
