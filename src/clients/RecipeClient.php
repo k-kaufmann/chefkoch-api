@@ -47,7 +47,7 @@ class RecipeClient
         return $recipesSimple;
     }
 
-    public function getRecipesByTags(array $categories, string $offset): array
+    public function getRecipesByCategories(array $categories, string $offset): array
     {
         $recipesSimple = [];
         $response = $this->client->request(
