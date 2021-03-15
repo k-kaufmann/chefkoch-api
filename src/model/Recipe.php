@@ -15,7 +15,7 @@ class Recipe
     private array $rating;
     private int $difficulty;
     private bool $hasImage;
-    private bool $hasVide;
+    private bool $hasVideo;
     private string $previewImageId;
     private int $preparationTime;
     private bool $isSubmitted;
@@ -88,7 +88,7 @@ class Recipe
         $this->rating = $rating;
         $this->difficulty = $difficulty;
         $this->hasImage = $hasImage;
-        $this->hasVide = $hasVideo;
+        $this->hasVideo = $hasVideo;
         $this->previewImageId = $previewImageId;
         $this->preparationTime = $preparationTime;
         $this->isSubmitted = $isSubmitted;
@@ -159,7 +159,7 @@ class Recipe
 
     public function hasVideo(): bool
     {
-        return $this->hasVide;
+        return $this->hasVideo;
     }
 
     public function getPreviewImageId(): string
