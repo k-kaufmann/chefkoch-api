@@ -7,6 +7,7 @@ use chefkoch\clients\CategoryClient;
 use chefkoch\clients\RecipeClient;
 use chefkoch\clients\UserClient;
 use chefkoch\model\Category;
+use chefkoch\model\Recipe;
 use chefkoch\model\User;
 
 class ApiClient
@@ -43,6 +44,11 @@ class ApiClient
     public function getRecipesByCategories(array $categories, string $offset = "0"): array
     {
         return $this->recipeClient->getRecipesByCategories($categories, $offset);
+    }
+
+    public function getRecipeById(string $id): Recipe
+    {
+        return $this->recipeClient->getRecipeById($id);
     }
 
     public function getCateogries(): array
