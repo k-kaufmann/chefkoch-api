@@ -8,6 +8,7 @@ use chefkoch\clients\RecipeClient;
 use chefkoch\clients\UserClient;
 use chefkoch\mapper\CategoryMapper;
 use chefkoch\mapper\RecipeMapper;
+use chefkoch\mapper\RecipeSimpleMapper;
 use chefkoch\mapper\UserMapper;
 use GuzzleHttp\Client;
 
@@ -37,6 +38,7 @@ class ChefkochFactory
             ),
             new RecipeClient(
                 new Client($this->basicRecipeClientConfiguration),
+                new RecipeSimpleMapper(),
                 new RecipeMapper()
             ),
             new CategoryClient(
